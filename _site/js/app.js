@@ -9,13 +9,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     age: null,
                     dirty_water: null,
                     cold_spots: null,
-                    pipe_size: null,
                     flushed_before: null,
                     filter: null,
                     tap: null,
                     rad_count: null,
                     name: null,
                     email: null,
+                    postcode: null,
                     phone: null,
                     consent: false,
                 },
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
         computed: {
             summary: function () {
                 return `
-                    <p>You have a ${this.form.age} year old ${this.form.boiler_type} boiler, ${this.filterPrefix} a filter fitted and running on ${this.form.pipe_size} pipes.</p>
+                    <p>You have a ${this.form.age} year old ${this.form.boiler_type} boiler, ${this.filterPrefix} a filter fitted.</p>
                     <p>You currently ${this.dirtyWaterPrefix} suffer from dirty water ${this.coldSpotsWording}.</p>
                     <p>You have ${this.form.rad_count} radiators in your home and they ${this.flushedBeforePrefix} been flushed before.</p>
                     <p>There ${this.outsideTapPrefix} an outside tap for us to use.</p>
@@ -78,10 +78,6 @@ document.addEventListener("DOMContentLoaded", function() {
             },
             setColdSpots: function (cold) {
                 this.form.cold_spots = cold;
-                this.next();
-            },
-            setPipeSize: function (size) {
-                this.form.pipe_size = size;
                 this.next();
             },
             setFlushedBefore: function (answer) {
